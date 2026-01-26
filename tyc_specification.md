@@ -960,8 +960,9 @@ The type of an expression is inferred from its components:
 
 - Function return types can be explicitly declared or omitted (inferred)
 - When the return type is omitted, it is inferred from the return statements in the function:
-  - If all return statements return a value of type `T`, the return type is inferred as `T`
+  - The return type is inferred from the **first return statement** that returns a value
   - If there are no return statements or only `return;` statements, the return type is inferred as `void`
+  - All subsequent return statements must return a value of the inferred return type - if a return statement returns a value of a different type, it is a compile-time error (TypeMismatchInStatement)
 - All `return` statements in a function must return a value of the inferred/declared return type (or no value for `void`)
 
 ### Strict Operator Typing
